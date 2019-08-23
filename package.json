@@ -1,0 +1,16 @@
+{
+  "name": "@ghlandy/storage",
+  "version": "0.0.0",
+  "description": "Browser localStorage/sessionStorage helper",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "storage",
+    "localStorage",
+    "sessionStorage"
+  ],
+  "author": "GHLandy <ghlandy@ghlandy.com>",
+  "license": "MIT"
+}
