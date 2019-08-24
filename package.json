@@ -20,6 +20,12 @@
     "localStorage",
     "sessionStorage"
   ],
+  "homepage": "http://storage.ghlandy.com/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GHLandy/ghlandy-storage.git"
+  },
+  "bugs": "https://github.com/GHLandy/ghlandy-storage/issues",
   "author": "GHLandy <ghlandy@ghlandy.com>",
   "license": "MIT",
   "devDependencies": {
