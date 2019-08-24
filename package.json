@@ -13,7 +13,8 @@
     "lint-staged": "lint-staged",
     "precommit": "lint-staged",
     "test": "jest",
-    "cov": "jest --coverage --verbose=false"
+    "cov": "jest --coverage --verbose=false",
+    "codecov": "codecov"
   },
   "keywords": [
     "storage",
@@ -32,6 +33,7 @@
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "babel-jest": "^24.9.0",
+    "codecov": "^3.5.0",
     "eslint": "^6.2.1",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^6.1.0",
