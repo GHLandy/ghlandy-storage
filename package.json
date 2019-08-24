@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Browser localStorage/sessionStorage helper",
   "main": "src/index.js",
+  "files": [
+    "src"
+  ],
   "scripts": {
     "format": "prettier --write \"**/*.{js,md}\"",
     "lint": "eslint --fix \"**/*.js\"",
