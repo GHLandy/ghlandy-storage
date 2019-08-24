@@ -4,7 +4,8 @@
   "description": "Browser localStorage/sessionStorage helper",
   "main": "src/index.js",
   "files": [
-    "src"
+    "src",
+    "docs"
   ],
   "scripts": {
     "format": "prettier --write \"**/*.{js,md}\"",
