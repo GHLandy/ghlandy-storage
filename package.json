@@ -2,12 +2,14 @@
   "name": "@ghlandy/storage",
   "version": "1.0.0",
   "description": "Browser localStorage/sessionStorage helper",
-  "main": "src/index.js",
+  "main": "dist/cjs.js",
+  "module": "dist/esm.js",
   "files": [
-    "src",
-    "docs"
+    "dist"
   ],
   "scripts": {
+    "build": "rollup -c",
+    "prepublishOnly": "npm run build",
     "format": "prettier --write \"**/*.{js,md}\"",
     "lint": "eslint --fix \"**/*.js\"",
     "lint-staged": "lint-staged",
@@ -42,7 +44,8 @@
     "husky": "^3.0.4",
     "jest": "^24.9.0",
     "lint-staged": "^9.2.3",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "rollup": "^1.20.3"
   },
   "lint-staged": {
     "**/*.{js,md}": [
