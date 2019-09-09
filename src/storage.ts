@@ -5,14 +5,14 @@
  * @param  {Boolean|String|Array|Object} value
  * @param  {String} storage localStorage|sessionStorage
  */
-function storageSet(key, value, storage) {
+function storageSet(key: string, value: boolean|string|Array<any>|object, storage: string): void {
   let val = value
 
   if (typeof val !== 'string') {
     val = JSON.stringify(val)
   }
 
-  window[storage].setItem(key, val)
+  (window as any)[storage].setItem(key, val)
 }
 
 /**
@@ -22,11 +22,11 @@ function storageSet(key, value, storage) {
  * @param  {String} storage localStorage|sessionStorage
  * @return {Null|Boolean|String|Array|Object}
  */
-function storageGet(key, storage) {
-  let val = window[storage].getItem(key)
+function storageGet(key: string, storage: string): null|boolean|string|Array<any>|object {
+  let val = (window as any)[storage].getItem(key)
 
   if (!val) {
-    val = window[storage][key] || null
+    val = (window as any)[storage][key] || null
   }
 
   try {
@@ -44,7 +44,7 @@ function storageGet(key, storage) {
  * @param  {String} key
  * @param  {Boolean|String|Array|Object} value
  */
-export function localSet(key, value) {
+export function localSet(key: string, value: boolean|string|Array<any>|object): void {
   storageSet(key, value, 'localStorage')
 }
 
@@ -54,7 +54,7 @@ export function localSet(key, value) {
  * @param  {String} key
  * @return {Null|Boolean|String|Array|Object}
  */
-export function localGet(key) {
+export function localGet(key: string): null|boolean|string|Array<any>|object {
   return storageGet(key, 'localStorage')
 }
 
@@ -64,7 +64,7 @@ export function localGet(key) {
  * @param  {String} key
  * @param  {Boolean|String|Array|Object} value
  */
-export function sessionSet(key, value) {
+export function sessionSet(key: string, value: boolean|string|Array<any>|object): void {
   storageSet(key, value, 'sessionStorage')
 }
 
@@ -74,6 +74,6 @@ export function sessionSet(key, value) {
  * @param  {String} key
  * @return {Null|Boolean|String|Array|Object}
  */
-export function sessionGet(key) {
+export function sessionGet(key: string): null|boolean|string|Array<any>|object {
   return storageGet(key, 'sessionStorage')
 }

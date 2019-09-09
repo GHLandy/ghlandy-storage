@@ -4,8 +4,10 @@
   "description": "Browser localStorage/sessionStorage helper",
   "main": "dist/cjs.js",
   "module": "dist/esm.js",
+  "types": "index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "index.d.ts"
   ],
   "scripts": {
     "build": "rollup -c",
@@ -31,6 +33,7 @@
   "bugs": "https://github.com/GHLandy/ghlandy-storage/issues",
   "author": "GHLandy <ghlandy@ghlandy.com>",
   "license": "MIT",
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
@@ -45,7 +48,9 @@
     "jest": "^24.9.0",
     "lint-staged": "^9.2.3",
     "prettier": "^1.18.2",
-    "rollup": "^1.20.3"
+    "rollup": "^1.20.3",
+    "rollup-plugin-typescript": "^1.0.1",
+    "typescript": "^3.6.2"
   },
   "lint-staged": {
     "**/*.{js,md}": [
