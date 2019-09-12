@@ -13,7 +13,7 @@
     "tsc": "tsc",
     "build": "rollup -c",
     "prepublishOnly": "npm run tsc && npm run build",
-    "format": "prettier --write \"**/*.{js,md}\"",
+    "format": "prettier --write \"**/*.{js,ts,md}\"",
     "lint": "eslint --fix \"**/*.js\"",
     "lint-staged": "lint-staged",
     "precommit": "lint-staged",
@@ -55,7 +55,7 @@
     "typescript": "^3.6.2"
   },
   "lint-staged": {
-    "**/*.{js,md}": [
+    "**/*.{js,ts,md}": [
       "prettier --write",
       "git add"
     ],
