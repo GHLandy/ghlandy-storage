@@ -5,7 +5,6 @@ branches:
   only:
     - master
 script:
-  - npm test
-  - npm run cov
+  - npm run ci
 after_success:
   - npm run codecov

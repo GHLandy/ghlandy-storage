@@ -19,6 +19,7 @@
     "precommit": "lint-staged",
     "test": "jest",
     "cov": "jest --coverage --verbose=false",
+    "ci": "npm run tsc && jest --coverage --verbose=false",
     "codecov": "codecov"
   },
   "keywords": [
