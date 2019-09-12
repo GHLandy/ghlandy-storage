@@ -7,7 +7,7 @@
  */
 function storageSet(
   key: string,
-  value: boolean | string | Array<any> | object,
+  value: boolean | string | any[] | object,
   storage: string
 ): void {
   let val = value
@@ -29,7 +29,7 @@ function storageSet(
 function storageGet(
   key: string,
   storage: string
-): null | boolean | string | Array<any> | object {
+): null | boolean | string | any[] | object {
   let val = (window as any)[storage].getItem(key)
 
   if (!val) {
@@ -53,7 +53,7 @@ function storageGet(
  */
 export function localSet(
   key: string,
-  value: boolean | string | Array<any> | object
+  value: boolean | string | any[] | object
 ): void {
   storageSet(key, value, 'localStorage')
 }
@@ -66,7 +66,7 @@ export function localSet(
  */
 export function localGet(
   key: string
-): null | boolean | string | Array<any> | object {
+): null | boolean | string | any[] | object {
   return storageGet(key, 'localStorage')
 }
 
@@ -78,7 +78,7 @@ export function localGet(
  */
 export function sessionSet(
   key: string,
-  value: boolean | string | Array<any> | object
+  value: boolean | string | any[] | object
 ): void {
   storageSet(key, value, 'sessionStorage')
 }
@@ -91,6 +91,6 @@ export function sessionSet(
  */
 export function sessionGet(
   key: string
-): null | boolean | string | Array<any> | object {
+): null | boolean | string | any[] | object {
   return storageGet(key, 'sessionStorage')
 }
