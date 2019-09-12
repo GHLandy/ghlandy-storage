@@ -4,6 +4,8 @@ yarn.lock
 
 coverage
 dist
+lib
+out
 
 logs
 *.log

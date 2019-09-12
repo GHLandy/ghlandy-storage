@@ -1,4 +1,4 @@
-import storage from '../src'
+import storage from '../out'
 
 const STORE_TEST = [
   { key: 'boolean false', value: false },
