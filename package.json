@@ -13,11 +13,10 @@
     "tsc": "tsc",
     "build": "rollup -c",
     "prepublishOnly": "npm run tsc && npm run build",
-    "format": "prettier --write \"**/*.{js,ts,md}\"",
-    "lint": "eslint --fix \"**/*.js\"",
-    "tslint": "tslint --fix \"src/*.ts\"",
+    "prettier": "prettier --write \"**/*.{js,ts,md}\"",
+    "lint:es": "eslint --fix \"**/*.js\"",
+    "lint:ts": "tslint --fix \"src/*.ts\"",
     "lint-staged": "lint-staged",
-    "precommit": "lint-staged",
     "test": "jest",
     "cov": "jest --coverage --verbose=false",
     "ci": "npm run tsc && jest --coverage --verbose=false",
@@ -36,7 +35,10 @@
   "bugs": "https://github.com/GHLandy/ghlandy-storage/issues",
   "author": "GHLandy <ghlandy@ghlandy.com>",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "@types/jest": "^24.0.18",
+    "ts-jest": "^24.1.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",

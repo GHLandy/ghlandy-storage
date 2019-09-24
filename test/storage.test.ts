@@ -1,4 +1,4 @@
-import storage from '../out'
+import storage from '../src'
 
 const STORE_TEST = [
   { key: 'boolean false', value: false },
@@ -18,12 +18,13 @@ describe('storage ...', () => {
   ;['local', 'session'].forEach(item => {
     STORE_TEST.forEach(test => {
       it(`${item}Set, ${item}Get ${test.key}`, () => {
-        expect(storage[`${item}Get`]()).toBeNull()
-        expect(storage[`${item}Get`](test.key)).toBeNull()
+        expect((storage as any)[`${item}Get`]()).toBeNull()
+        expect((storage as any)[`${item}Get`](test.key)).toBeNull()
+        ;(storage as any)[`${item}Set`](test.key, test.value)
 
-        storage[`${item}Set`](test.key, test.value)
-
-        expect(storage[`${item}Get`](test.key)).toStrictEqual(test.value)
+        expect((storage as any)[`${item}Get`](test.key)).toStrictEqual(
+          test.value
+        )
       })
     })
   })
