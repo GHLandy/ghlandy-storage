@@ -1,4 +1,4 @@
-import storage from '../src'
+import storage from '../src';
 
 const STORE_TEST = [
   { key: 'boolean false', value: false },
@@ -6,26 +6,24 @@ const STORE_TEST = [
   { key: 'string', value: 'just a string.' },
   { key: 'array', value: ['a', 1, { a: 1 }] },
   { key: 'object', value: { a: 1, b: 2 } },
-]
+];
 
 describe('storage ...', () => {
   beforeEach(() => {
-    localStorage.clear()
-    sessionStorage.clear()
-  })
+    localStorage.clear();
+    sessionStorage.clear();
+  });
 
   // test localSet, localGet, sessionSet and sessionGet
-  ;['local', 'session'].forEach(item => {
+  ['local', 'session'].forEach(item => {
     STORE_TEST.forEach(test => {
       it(`${item}Set, ${item}Get ${test.key}`, () => {
-        expect((storage as any)[`${item}Get`]()).toBeNull()
-        expect((storage as any)[`${item}Get`](test.key)).toBeNull()
-        ;(storage as any)[`${item}Set`](test.key, test.value)
+        expect((storage as any)[`${item}Get`]()).toBeNull();
+        expect((storage as any)[`${item}Get`](test.key)).toBeNull();
+        (storage as any)[`${item}Set`](test.key, test.value);
 
-        expect((storage as any)[`${item}Get`](test.key)).toStrictEqual(
-          test.value
-        )
-      })
-    })
-  })
-})
+        expect((storage as any)[`${item}Get`](test.key)).toStrictEqual(test.value);
+      });
+    });
+  });
+});

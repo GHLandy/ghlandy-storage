@@ -1,3 +1,3 @@
-import { localGet, localSet, sessionGet, sessionSet } from './storage'
+import { localGet, localSet, sessionGet, sessionSet } from './storage';
 
-export default { localSet, localGet, sessionSet, sessionGet }
+export default { localSet, localGet, sessionSet, sessionGet };

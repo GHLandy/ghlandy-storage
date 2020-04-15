@@ -17,10 +17,10 @@ frequently.
 ## Usage
 
 ```javascript
-import storage from '@ghlandy/storage'
+import storage from '@ghlandy/storage';
 
-storage.localSet('key', { a: 1, b: 2 })
-storage.localGet('key') // { a: 1, b: 2 }
+storage.localSet('key', { a: 1, b: 2 });
+storage.localGet('key'); // { a: 1, b: 2 }
 ```
 
 See [Docs](./docs/README.md) for api details.

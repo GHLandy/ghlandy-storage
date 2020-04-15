@@ -1,5 +1,5 @@
-import typescript from 'rollup-plugin-typescript'
-import pkg from './package.json'
+import typescript from 'rollup-plugin-typescript';
+import pkg from './package.json';
 
 export default [
   {
@@ -11,4 +11,4 @@ export default [
       { file: pkg.module, format: 'es' },
     ],
   },
-]
+];

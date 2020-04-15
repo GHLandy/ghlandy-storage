@@ -3,7 +3,7 @@
 Import the storage tool first:
 
 ```javascript
-import storage from '@ghlandy/storage'
+import storage from '@ghlandy/storage';
 ```
 
 This `storage` has four function, `localSet`, `localGet`, `sessionSet` and
@@ -21,17 +21,17 @@ Normally, if you have call `localSet` to set a key, but straightly get a key usi
 Examples:
 
 ```javascript
-storage.localSet('bl', true)
-storage.localGet('bl') // true
+storage.localSet('bl', true);
+storage.localGet('bl'); // true
 
-storage.localSet('str', 'this is a string.')
-storage.localGet('str') // 'this is a string.'
+storage.localSet('str', 'this is a string.');
+storage.localGet('str'); // 'this is a string.'
 
-storage.localSet('arr', [1, 2, 3, 4])
-storage.localGet('arr') // [1, 2, 3, 4]
+storage.localSet('arr', [1, 2, 3, 4]);
+storage.localGet('arr'); // [1, 2, 3, 4]
 
-storage.localSet('obj', { a: 1, b: 2, c: 3 })
-storage.localGet('obj') // { a: 1, b: 2, c: 3 }
+storage.localSet('obj', { a: 1, b: 2, c: 3 });
+storage.localGet('obj'); // { a: 1, b: 2, c: 3 }
 ```
 
 ## `sessionSet` and `sessionGet`

@@ -5,18 +5,14 @@
  * @param  {Boolean|String|Array|Object} value
  * @param  {String} storage localStorage|sessionStorage
  */
-function storageSet(
-  key: string,
-  value: boolean | string | any[] | object,
-  storage: string
-): void {
-  let val = value
+function storageSet(key: string, value: boolean | string | any[] | object, storage: string): void {
+  let val = value;
 
   if (typeof val !== 'string') {
-    val = JSON.stringify(val)
+    val = JSON.stringify(val);
   }
 
-  ;(window as any)[storage].setItem(key, val)
+  (window as any)[storage].setItem(key, val);
 }
 
 /**
@@ -26,23 +22,20 @@ function storageSet(
  * @param  {String} storage localStorage|sessionStorage
  * @return {Null|Boolean|String|Array|Object}
  */
-function storageGet(
-  key: string,
-  storage: string
-): null | boolean | string | any[] | object {
-  let val = (window as any)[storage].getItem(key)
+function storageGet(key: string, storage: string): null | boolean | string | any[] | object {
+  let val = (window as any)[storage].getItem(key);
 
   if (!val) {
-    val = (window as any)[storage][key] || null
+    val = (window as any)[storage][key] || null;
   }
 
   try {
-    val = JSON.parse(val)
+    val = JSON.parse(val);
   } catch (e) {
     // console.warn(storage, e)
   }
 
-  return val
+  return val;
 }
 
 /**
@@ -51,11 +44,8 @@ function storageGet(
  * @param  {String} key
  * @param  {Boolean|String|Array|Object} value
  */
-export function localSet(
-  key: string,
-  value: boolean | string | any[] | object
-): void {
-  storageSet(key, value, 'localStorage')
+export function localSet(key: string, value: boolean | string | any[] | object): void {
+  storageSet(key, value, 'localStorage');
 }
 
 /**
@@ -64,10 +54,8 @@ export function localSet(
  * @param  {String} key
  * @return {Null|Boolean|String|Array|Object}
  */
-export function localGet(
-  key: string
-): null | boolean | string | any[] | object {
-  return storageGet(key, 'localStorage')
+export function localGet(key: string): null | boolean | string | any[] | object {
+  return storageGet(key, 'localStorage');
 }
 
 /**
@@ -76,11 +64,8 @@ export function localGet(
  * @param  {String} key
  * @param  {Boolean|String|Array|Object} value
  */
-export function sessionSet(
-  key: string,
-  value: boolean | string | any[] | object
-): void {
-  storageSet(key, value, 'sessionStorage')
+export function sessionSet(key: string, value: boolean | string | any[] | object): void {
+  storageSet(key, value, 'sessionStorage');
 }
 
 /**
@@ -89,8 +74,6 @@ export function sessionSet(
  * @param  {String} key
  * @return {Null|Boolean|String|Array|Object}
  */
-export function sessionGet(
-  key: string
-): null | boolean | string | any[] | object {
-  return storageGet(key, 'sessionStorage')
+export function sessionGet(key: string): null | boolean | string | any[] | object {
+  return storageGet(key, 'sessionStorage');
 }
