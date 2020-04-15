@@ -5,6 +5,8 @@ import storage from '../src';
 const STORE_TEST = [
   { key: 'boolean false', value: false },
   { key: 'boolean true', value: true },
+  { key: 'number', value: 1 },
+  { key: 'stringify number', value: '1' },
   { key: 'string', value: 'just a string.' },
   { key: 'array', value: ['a', 1, { a: 1 }] },
   { key: 'object', value: { a: 1, b: 2 } },
