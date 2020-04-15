@@ -1,3 +1,5 @@
+export type storage = 'localStorage' | 'sessionStorage';
+
 /**
  * @name storageSet
  * @desc set localStorage or sessionStorage
@@ -5,14 +7,14 @@
  * @param  {Boolean|String|Array|Object} value
  * @param  {String} storage localStorage|sessionStorage
  */
-function storageSet(key: string, value: boolean | string | any[] | object, storage: string): void {
+function storageSet(key: string, value: boolean | string | any[] | object, storage: storage): void {
   let val = value;
 
   if (typeof val !== 'string') {
     val = JSON.stringify(val);
   }
 
-  (window as any)[storage].setItem(key, val);
+  window[storage].setItem(key, val);
 }
 
 /**
@@ -22,15 +24,15 @@ function storageSet(key: string, value: boolean | string | any[] | object, stora
  * @param  {String} storage localStorage|sessionStorage
  * @return {Null|Boolean|String|Array|Object}
  */
-function storageGet(key: string, storage: string): null | boolean | string | any[] | object {
-  let val = (window as any)[storage].getItem(key);
+function storageGet(key: string, storage: storage): null | boolean | string | any[] | object {
+  let val = window[storage].getItem(key);
 
   if (!val) {
-    val = (window as any)[storage][key] || null;
+    val = window[storage][key] || null;
   }
 
   try {
-    val = JSON.parse(val);
+    val = JSON.parse(val as string);
   } catch (e) {
     // console.warn(storage, e)
   }

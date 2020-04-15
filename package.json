@@ -14,9 +14,7 @@
     "build": "rollup -c",
     "prepublishOnly": "npm run tsc && npm run build",
     "prettier": "prettier --write \"**/*.{js,ts,md}\"",
-    "lint:es": "eslint --fix \"**/*.js\"",
-    "lint:ts": "tslint --fix \"src/*.ts\"",
-    "lint-staged": "lint-staged",
+    "lint": "eslint --fix \"**/*.{js,ts}\"",
     "test": "jest",
     "cov": "jest --coverage --verbose=false",
     "ci": "npm run tsc && jest --coverage --verbose=false",
@@ -35,29 +33,23 @@
   "bugs": "https://github.com/GHLandy/ghlandy-storage/issues",
   "author": "GHLandy <ghlandy@ghlandy.com>",
   "license": "MIT",
-  "dependencies": {
-    "@types/jest": "^24.0.18",
-    "ts-jest": "^24.1.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
+    "@types/jest": "^24.0.18",
+    "@typescript-eslint/eslint-plugin": "^2.28.0",
+    "@typescript-eslint/parser": "^2.28.0",
     "babel-jest": "^24.9.0",
     "codecov": "^3.5.0",
-    "eslint": "^6.2.1",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-config-prettier": "^6.1.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-prettier": "^3.1.0",
+    "eslint": "^6.8.0",
     "husky": "^3.0.4",
     "jest": "^24.9.0",
     "lint-staged": "^9.2.3",
     "prettier": "^1.18.2",
     "rollup": "^1.20.3",
     "rollup-plugin-typescript": "^1.0.1",
-    "tslint": "^5.20.0",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-plugin-prettier": "^2.0.1",
+    "ts-jest": "^24.1.0",
     "typescript": "^3.6.2"
   },
   "lint-staged": {
@@ -65,21 +57,17 @@
       "prettier --write",
       "git add"
     ],
-    "**/*.js": [
+    "**/*.{js,ts}": [
       "eslint --fix",
-      "git add"
-    ],
-    "src/*.ts": [
-      "tslint --fix",
       "git add"
     ]
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint-staged"
+      "pre-commit": "lint-staged"
     }
   },
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=10.0.0"
   }
 }

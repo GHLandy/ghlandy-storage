@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import storage from '../src';
 
 const STORE_TEST = [
