@@ -10,7 +10,7 @@ export type storage = 'localStorage' | 'sessionStorage';
 function storageSet(key: string, value: boolean | string | any[] | object, storage: storage): void {
   let val = value;
 
-  if (typeof val !== 'string') {
+  if (typeof val !== 'string' || (typeof val === 'string' && !isNaN(Number(val)))) {
     val = JSON.stringify(val);
   }
 
