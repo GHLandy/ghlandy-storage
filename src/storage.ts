@@ -1,81 +1,29 @@
-export type storage = 'localStorage' | 'sessionStorage';
+export type value = null | number | string | boolean | any[] | object;
+
+type storage = 'localStorage' | 'sessionStorage';
 
 /**
- * @name storageSet
- * @desc set localStorage or sessionStorage
- * @param  {String} key
- * @param  {Boolean|String|Array|Object} value
- * @param  {String} storage localStorage|sessionStorage
+ * @name storageGet localStorage.getItem or sessionStorage.getItem
  */
-function storageSet(key: string, value: boolean | string | any[] | object, storage: storage): void {
-  let val = value;
-
-  if (typeof val !== 'string' || (typeof val === 'string' && !isNaN(Number(val)))) {
-    val = JSON.stringify(val);
-  }
-
-  window[storage].setItem(key, val);
-}
-
-/**
- * @name storageGet
- * @desc get localStorage or sessionStorage
- * @param  {String} key
- * @param  {String} storage localStorage|sessionStorage
- * @return {Null|Boolean|String|Array|Object}
- */
-function storageGet(key: string, storage: storage): null | boolean | string | any[] | object {
-  let val = window[storage].getItem(key);
-
-  if (!val) {
-    val = window[storage][key] || null;
-  }
+export function storageGet(key: string, storage: storage): value {
+  let value = window[storage].getItem(key) as string;
 
   try {
-    val = JSON.parse(val as string);
+    value = JSON.parse(value);
   } catch (e) {
     // console.warn(storage, e)
   }
 
-  return val;
+  return value;
 }
 
 /**
- * @name localSet
- * @desc set localStorage
- * @param  {String} key
- * @param  {Boolean|String|Array|Object} value
+ * @name storageSet localStorage.setItem or sessionStorage.setItem
  */
-export function localSet(key: string, value: boolean | string | any[] | object): void {
-  storageSet(key, value, 'localStorage');
-}
+export function storageSet(key: string, value: value, storage: storage): void {
+  if (typeof value !== 'string' || (typeof value === 'string' && !isNaN(Number(value)))) {
+    value = JSON.stringify(value);
+  }
 
-/**
- * @name localGet
- * @desc get localStorage
- * @param  {String} key
- * @return {Null|Boolean|String|Array|Object}
- */
-export function localGet(key: string): null | boolean | string | any[] | object {
-  return storageGet(key, 'localStorage');
-}
-
-/**
- * @name sessionSet
- * @desc set sessionStorage
- * @param  {String} key
- * @param  {Boolean|String|Array|Object} value
- */
-export function sessionSet(key: string, value: boolean | string | any[] | object): void {
-  storageSet(key, value, 'sessionStorage');
-}
-
-/**
- * @name sessionGet
- * @desc get sessionStorage
- * @param  {String} key
- * @return {Null|Boolean|String|Array|Object}
- */
-export function sessionGet(key: string): null | boolean | string | any[] | object {
-  return storageGet(key, 'sessionStorage');
+  window[storage].setItem(key, value);
 }
