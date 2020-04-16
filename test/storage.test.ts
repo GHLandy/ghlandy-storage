@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import storage from '../src';
+import * as storage from '../src/storage';
 
 const STORE_TEST = [
   { key: 'boolean false', value: false },

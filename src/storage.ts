@@ -27,3 +27,19 @@ export function storageSet(key: string, value: value, storage: storage): void {
 
   window[storage].setItem(key, value);
 }
+
+export function localGet(key: string): value {
+  return storageGet(key, 'localStorage');
+}
+
+export function localSet(key: string, value: value): void {
+  storageSet(key, value, 'localStorage');
+}
+
+export function sessionGet(key: string): value {
+  return storageGet(key, 'sessionStorage');
+}
+
+export function sessionSet(key: string, value: value): void {
+  storageSet(key, value, 'sessionStorage');
+}
