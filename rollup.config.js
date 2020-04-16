@@ -1,11 +1,11 @@
-import typescript from 'rollup-plugin-typescript';
+import typescript from 'rollup-plugin-typescript2';
 import pkg from './package.json';
 
 export default [
   {
     input: 'src/index.ts',
     external: [],
-    plugins: [typescript()],
+    plugins: [typescript({ useTsconfigDeclarationDir: true })],
     output: [
       { file: pkg.main, format: 'cjs' },
       { file: pkg.module, format: 'es' },

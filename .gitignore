@@ -4,8 +4,7 @@ yarn.lock
 
 coverage
 dist
-lib
-out
+types
 
 logs
 *.log

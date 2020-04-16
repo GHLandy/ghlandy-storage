@@ -4,15 +4,14 @@
   "description": "Browser localStorage/sessionStorage helper",
   "main": "dist/cjs.js",
   "module": "dist/esm.js",
-  "types": "lib/index.d.ts",
+  "types": "types",
   "files": [
     "dist",
-    "lib"
+    "types"
   ],
   "scripts": {
-    "tsc": "tsc",
     "build": "rollup -c",
-    "prepublishOnly": "npm run tsc && npm run build",
+    "prepublishOnly": "npm run build",
     "prettier": "prettier --write \"**/*.{js,ts,md}\"",
     "lint": "eslint --fix \"**/*.{js,ts}\"",
     "test": "jest",
@@ -48,7 +47,7 @@
     "lint-staged": "^9.2.3",
     "prettier": "^1.18.2",
     "rollup": "^1.20.3",
-    "rollup-plugin-typescript": "^1.0.1",
+    "rollup-plugin-typescript2": "^0.27.0",
     "ts-jest": "^24.1.0",
     "typescript": "^3.6.2"
   },
