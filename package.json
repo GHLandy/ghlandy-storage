@@ -10,13 +10,13 @@
     "types"
   ],
   "scripts": {
-    "build": "rollup -c",
+    "prebuild": "rimraf dist types",
     "prepublishOnly": "npm run build",
+    "build": "rollup -c",
     "prettier": "prettier --write \"**/*.{js,ts,md}\"",
     "lint": "eslint --fix \"**/*.{js,ts}\"",
     "test": "jest",
     "cov": "jest --coverage --verbose=false",
-    "ci": "npm run tsc && jest --coverage --verbose=false",
     "codecov": "codecov"
   },
   "keywords": [
@@ -46,6 +46,7 @@
     "jest": "^24.9.0",
     "lint-staged": "^9.2.3",
     "prettier": "^1.18.2",
+    "rimraf": "^3.0.2",
     "rollup": "^1.20.3",
     "rollup-plugin-typescript2": "^0.27.0",
     "ts-jest": "^24.1.0",
