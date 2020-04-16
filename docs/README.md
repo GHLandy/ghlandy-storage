@@ -1,28 +1,40 @@
-# API
+# @ghlandy/storage usage details
 
-Import the storage tool first:
+This `storage` has four function as mentioned above to manipulate browser's `localStorage` and `sessionStorage` with serialization and deserialization of `Array` and `Object`, etc.
+
+## import the storage tool
 
 ```javascript
-import storage from '@ghlandy/storage';
+import { localGet, localSet, sessionGet, sessionSet } from '@ghlandy/storage';
+// Or
+import * as storage from '@ghlandy/storage';
 ```
 
-This `storage` has four function, `localSet`, `localGet`, `sessionSet` and
-`sessionGet` to manipulate browser's `localStorage` and `sessionStorage` with
-serialization and deserialization.
+## `localGet` and `localSet` pair
 
-## `localSet` and `localGet`
+`localSet` stands for `localStorage.setItem`, will set value to `localStorage`.
+`localSet` stands for `localStorage.getItem`, will get value from `localStorage`.
 
-`localSet` stand for `localStorage.setItem`, will set value to `localStorage`.
-`localSet` stand for `localStorage.getItem`, will get value from `localStorage`.
-
-Normally, if you have call `localSet` to set a key, but straightly get a key using
-`localSet`, it would return a `null`.
+Normally, if you have not call `localSet` to set a key, but straightly get a key using `localSet`,
+it would return a `null`.
 
 Examples:
 
 ```javascript
+// have not set a key by calling: localSet('key', 'value')
+storage.localGet('key'); // null
+
 storage.localSet('bl', true);
 storage.localGet('bl'); // true
+
+storage.localSet('bl2', false);
+storage.localGet('bl2'); // false
+
+storage.localSet('number', 123);
+storage.localGet('number'); // 123
+
+storage.localSet('strigify_number', '123');
+storage.localGet('strigify_number'); // '123'
 
 storage.localSet('str', 'this is a string.');
 storage.localGet('str'); // 'this is a string.'
@@ -34,7 +46,7 @@ storage.localSet('obj', { a: 1, b: 2, c: 3 });
 storage.localGet('obj'); // { a: 1, b: 2, c: 3 }
 ```
 
-## `sessionSet` and `sessionGet`
+## `sessionGet` and `sessionSet` pair
 
-This two function is similar to the above mentioned, but set or get value from
+This pair function is similar to the above mentioned, but set or get value making use of
 `sessionStorage`, what you to do is change the function name correspondingly.

@@ -11,20 +11,31 @@
 [travis-image]: https://travis-ci.org/GHLandy/ghlandy-storage.svg?branch=master
 [travis-url]: https://travis-ci.org/GHLandy/ghlandy-storage
 
-A set of helper deal with browser localStorage and sessionStorage, which used
-frequently.
+A set of helpers deal with browser localStorage and sessionStorage, which used frequently. Using
+this storage util, we can void serialization and deserialization of Array, Object, etc.
 
 ## Usage
 
 ```javascript
-import storage from '@ghlandy/storage';
+import { localGet, localSet, sessionGet, sessionSet } from '@ghlandy/storage';
 
-storage.localSet('key', { a: 1, b: 2 });
-storage.localGet('key'); // { a: 1, b: 2 }
+localSet('key', { a: 1, b: 2 });
+localGet('key'); // { a: 1, b: 2 }
+
+sessionGet('key', { a: 1, b: 2 });
+sessionSet('key'); // { a: 1, b: 2 }
 ```
 
-See [Docs](./docs/README.md) for api details.
+**CAUTION: With version @2.x, there is no defualt export**
+
+If you prefer default export style, just do:
+
+```js
+import * as storage from '@ghlandy/storage';
+```
+
+See [Usage Details Docs](http://storage.ghlandy.com) for api details.
 
 ## License
 
-This tool is lecensed under the [MIT](./LICENSE.md)
+This tool is lecensed under the [MIT](https://github.com/GHLandy/ghlandy-storage/blob/master/LICENSE.md)
