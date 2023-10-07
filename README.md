@@ -1,5 +1,9 @@
 # @ghlandy/storage
 
+
+## Deprecated!!!
+
+
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![codecov][codecov-image]][codecov-url]
